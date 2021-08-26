@@ -188,12 +188,16 @@ Resources:
             Ref: AWS::StackName
           description: Wild Ryde API for describing and managing unicorn customizations
           version: 1.0.0
-        ### TODO: add authorizer
+        securityDefinitions:
+          ApiKey:
+            type: apiKey
+            name: x-api-key
+            in: header
         paths:
           "/socks":
             get:
-#              security:
-#                - CustomAuthorizer: []
+              security:
+                - ApiKey: []
               x-amazon-apigateway-integration:
                 httpMethod: POST
                 type: aws_proxy
@@ -202,8 +206,8 @@ Resources:
               responses: {}
           "/horns":
             get:
-#              security:
-#                - CustomAuthorizer: []
+              security:
+                - ApiKey: []
               x-amazon-apigateway-integration:
                 httpMethod: POST
                 type: aws_proxy
@@ -212,8 +216,8 @@ Resources:
               responses: {}
           "/glasses":
             get:
-#              security:
-#                - CustomAuthorizer: []
+              security:
+                - ApiKey: []
               x-amazon-apigateway-integration:
                 httpMethod: POST
                 type: aws_proxy
@@ -222,8 +226,8 @@ Resources:
               responses: {}
           "/capes":
             get:
-#              security:
-#                - CustomAuthorizer: []
+              security:
+                - ApiKey: []
               x-amazon-apigateway-integration:
                 httpMethod: POST
                 type: aws_proxy
@@ -232,8 +236,8 @@ Resources:
               responses: {}
           "/customizations":
             get:
-#              security:
-#                - CustomAuthorizer: []
+              security:
+                - ApiKey: []
               x-amazon-apigateway-integration:
                 httpMethod: POST
                 type: aws_proxy
@@ -241,8 +245,8 @@ Resources:
                   Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${CustomizeUnicornFunction.Arn}/invocations
               responses: {}
             post:
-#              security:
-#                - CustomAuthorizer: []
+              security:
+                - ApiKey: []
               x-amazon-apigateway-integration:
                 httpMethod: POST
                 type: aws_proxy
@@ -251,8 +255,8 @@ Resources:
               responses: {}
           "/customizations/{id}":
             get:
-#              security:
-#                - CustomAuthorizer: []
+              security:
+                - ApiKey: []
               x-amazon-apigateway-integration:
                 httpMethod: POST
                 type: aws_proxy
@@ -260,8 +264,8 @@ Resources:
                   Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${CustomizeUnicornFunction.Arn}/invocations
               responses: {}
             delete:
-#              security:
-#                - CustomAuthorizer: []
+              security:
+                - ApiKey: []
               x-amazon-apigateway-integration:
                 httpMethod: POST
                 type: aws_proxy
@@ -270,8 +274,8 @@ Resources:
               responses: {}
           "/partners":
             post:
-#              security:
-#                - CustomAuthorizer: []
+              security:
+                - ApiKey: []
               x-amazon-apigateway-integration:
                 httpMethod: POST
                 type: aws_proxy
