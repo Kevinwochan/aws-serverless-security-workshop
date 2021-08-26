@@ -8,6 +8,7 @@ Globals:
     Environment:
       Variables:
         SECRET_NAME: secure-serverless-db-secret # name of the RDS credentials in secrets manager
+    Tracing: Active
 
 Parameters:
   InitResourceStack:
