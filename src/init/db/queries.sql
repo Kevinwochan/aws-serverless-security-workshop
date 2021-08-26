@@ -83,6 +83,7 @@ INSERT INTO Capes (NAME,PRICE) VALUES
 
 INSERT INTO Companies (NAME) VALUES ("Placeholder company");
 
+GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL;     
 
 /*
 

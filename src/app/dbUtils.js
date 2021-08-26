@@ -76,7 +76,8 @@ class Database {
                         user: JSON.parse(secret).username,
                         password: JSON.parse(secret).password,
                         database: "unicorn_customization",
-                    multipleStatements: true
+                        multipleStatements: false,
+                        ssl: "Amazon RDS"
                     });
                 } else {
                     reject("Cannot parse DB credentials from secrets manager.");
